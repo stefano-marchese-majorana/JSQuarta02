@@ -13,13 +13,13 @@
             for (var i = 1; i < 5; i++)  {
                 let elem = document.getElementById("R1"+i);
                 elem.onclick = function() {                    
-                    if (elem.classList.contains("true")){
+                    if (elem.classList.contains("true")) {
                         elem.style.backgroundColor = "green";
                         elem.style.color = "white";
                         esatte += 1;
                         let e = document.getElementById("esatte");
                         e.innerText = esatte; 
-                    }else{
+                    } else if (elem.classList.contains("false")) {
                         elem.style.backgroundColor = "red";
                         elem.style.color = "white";
                         errate += 1;
@@ -27,6 +27,7 @@
                         e.innerText = errate; 
                     }
                     elem.removeAttribute("href");
+                    elem.removeAttribute("class");
                 }
             }
         }
