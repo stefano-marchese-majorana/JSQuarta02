@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q&amp;A</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script>
+        window.onload = function() {
+            let esatte = 0;
+            let errate = 0;
+            for (var i = 1; i < 5; i++)  {
+                let elem = document.getElementById("R1"+i);
+                elem.onclick = function() {                    
+                    if (elem.classList.contains("true")){
+                        elem.style.backgroundColor = "green";
+                        elem.style.color = "white";
+                        esatte += 1;
+                        let e = document.getElementById("esatte");
+                        e.innerText = esatte; 
+                    }else{
+                        elem.style.backgroundColor = "red";
+                        elem.style.color = "white";
+                        errate += 1;
+                        let e = document.getElementById("errate");
+                        e.innerText = errate; 
+                    }
+                    elem.removeAttribute("href");
+                }
+            }
+        }
+        function showAnswer(e){
+            let elem = document.getElementById("A" + e);
+            let bt = document.getElementById("B" + e);
+            let sp = bt.getElementsByTagName("span");
+            if (elem.style.display == "none") {
+                elem.style.display = "block";
+                sp[0].innerHTML = "Hide Explanation";
+            } else {
+                elem.style.display = "none";
+                sp[0].innerHTML = "Show Explanation";
+            }
+        }
+        function modifyBorder() {
+            let elem =  document.getElementById("TEST1");
+            elem.style.borderStyle = "dotted";
+            elem.style.borderColor = "red";
+            elem.removeAttribute("href");
+        } 
+        function modifyMargin() {
+            let elem =  document.getElementById("TEST2");
+            elem.style.marginTop = "20px";
+            elem.style.marginBottom = "20px";
+            elem.style.marginLeft = "20px";
+            elem.style.marginRight = "20px";
+            elem.removeAttribute("href");
+        } 
+        function modifyDecoration() {
+            let elem =  document.getElementById("TEST3");
+            elem.style.textDecoration = "underline red double";
+            elem.removeAttribute("href");
+        } 
+        function modifyFontFamily() {
+            let elem =  document.getElementById("TEST4");
+            elem.style.fontFamily = "monospace";
+            elem.style.fontSize = "20px";
+            elem.style.fontStyle = "italic";
+            elem.style.fontWeight = "bold";
+            elem.removeAttribute("href");
+        } 
+        function modifyIcon() {
+            let elem =  document.getElementById("TEST5");
+            elem.innerHTML = "<i class=\"material-icons\">flag</i>" + elem.innerHTML + "<i class=\"material-icons\">flag</i>";
+            elem.removeAttribute("href");
+        } 
+        function modifyTextShadow() {
+            let elem =  document.getElementById("TEST6");
+            elem.style.textShadow = "3px 3px red";
+            elem.removeAttribute("href");
+        } 
+    </script>
+</head>
+<body>
+    <div class="QA">
+        <div class="Q">
+            <p><span>Q 1</span> - Which of the following is true about variable naming conventions in JavaScript?</p>
+            <p><a id="R11" class="false" href="javascript:void(0);"><span>A</span> - JavaScript variable names must begin with a letter or the underscore character.</a></p>
+            <p><a id="R12" class="false" href="javascript:void(0);"><span>B</span> - JavaScript variable names are case sensitive.</a></p>
+            <p><a id="R13" class="true" href="javascript:void(0);"><span>C</span> - Both of the above.</a></p>
+            <p><a id="R14" class="false" href="javascript:void(0);"><span>D</span> - None of the above.</a></p>
+        </div>
+        <div class="A" id="A1" style="display:none">
+            <h3>Answer : C</h3>
+            <h3>Explanation</h3>
+            <p>Both of the above options are correct.</p>
+        </div> 
+        <div class="B" id="B1">
+            <button type="button" onclick="javascript:showAnswer('1')"><span>Show Explanation</span></button>
+        </div>       
+    </div>
+    <div class="RESULT">
+        <p>Risposte esatte <span id="esatte">0</span> - Risposte errate <span id="errate">0</span></p>
+    </div>
+    <div class="RELOAD">
+        <p></p>
+        <button type="button" onClick="window.location.reload(true)"><span>Reload Page</span></button>
+    </div>
+    <div class="TEST">
+        <p><a id="TEST1" href="javascript:modifyBorder();"><span>1</span> - Bordo</a></p>
+        <p><a id="TEST2" href="javascript:modifyMargin();"><span>2</span> - Margini</a></p>
+        <p><a id="TEST3" href="javascript:modifyDecoration();"><span>6</span> - Decoration</a></p>
+        <p><a id="TEST4" href="javascript:modifyFontFamily();"><span>7</span> - Font Family</a></p>
+        <p><a id="TEST5" href="javascript:modifyIcon();"><span>8</span> - Icon</a></p>
+        <p><a id="TEST6" href="javascript:modifyTextShadow();"><span>9</span> - TextShadow</a></p>
+    </div>
+</body>
+</html>
